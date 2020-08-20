@@ -7,7 +7,7 @@ const STORE = {
     },
     {
       question: 'What is the highest grossing holiday movie of all time?',
-      options: ['Star Wars', 'The Grinch', 'Home Alone', 'Elf'],
+      options: ['The Santa Clause', 'The Grinch', 'Home Alone', 'Elf'],
       answer: 'Home Alone',
     },
     {

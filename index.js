@@ -54,18 +54,16 @@ function renderAnswers(options) {
 }
 
 function checkAnswer() {
-  $('.quiz-container').on('submit', function (e) {
-    e.preventDefault();
-    $('button.next').show();
-    $('button.submit').hide();
+  $('.quiz-container').on('submit', function (event) {
+    event.preventDefault();
 
     const userInput = $('input:checked');
+    const isUserCorrect = userInput.val() === questions[currentQuestion].answer;
+
     if (!userInput.val()) {
       alert('Must select one option');
       return;
     }
-
-    const isUserCorrect = userInput.val() === questions[currentQuestion].answer;
 
     if (isUserCorrect) {
       $(userInput).closest('li').addClass('correct_answer');
@@ -74,19 +72,26 @@ function checkAnswer() {
         .prepend('<i class="fas fa-check-circle"> </i>');
       totalScore += 1;
       updateScoreUi();
+      renderFormBtns();
     } else {
       const id = findCorrectAnswerIndex();
+
       $(userInput).closest('li').addClass('wrong_answer');
       $(userInput)
         .closest('li')
         .prepend('<i class="fas fa-times-circle"> </i>');
-
+      renderFormBtns();
       $('input[type=radio]').attr('disabled', true);
       $(`#${id}`)
         .addClass('correct_answer')
         .prepend('<i class="fas fa-check-circle"> </i>');
     }
   });
+}
+
+function renderFormBtns() {
+  $('button.next').show();
+  $('button.submit').hide();
 }
 
 function findCorrectAnswerIndex() {
@@ -116,7 +121,7 @@ function displayFinalResults() {
 }
 
 function reStartQuiz() {
-  $('.restart').on('click', function (evnt) {
+  $('.restart').on('click', function (event) {
     currentQuestion = 0;
     totalScore = 0;
     renderNewQuestion();
