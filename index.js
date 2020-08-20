@@ -1,15 +1,11 @@
 let { currentQuestion, questions, totalScore } = STORE;
 // GLOBAL VARIABLES FOR THE STORE OBJECT
 
-function handleQuiz() {
-  startQuiz();
-  reStartQuiz();
-}
-
-function startQuiz() {
+function initializeNewQuiz() {
   $('.start-quiz button').on('click', function (evnt) {
     $(this).parent().hide();
     renderNewQuestion();
+    reStartQuiz();
     updateCurrentQuestion();
     checkAnswer();
   });
@@ -19,6 +15,7 @@ function renderNewQuestion() {
   const formHtml = `<form>  
     <h2 class='score'>Score: <span>0</span></h2>
    <fieldset> 
+   <legend></legend>
    <ul>
    </ul>
    </fieldset>
@@ -85,7 +82,9 @@ function checkAnswer() {
         .prepend('<i class="fas fa-times-circle"> </i>');
 
       $('input[type=radio]').attr('disabled', true);
-      $(`#${id}`).addClass('correct_answer');
+      $(`#${id}`)
+        .addClass('correct_answer')
+        .prepend('<i class="fas fa-check-circle"> </i>');
     }
   });
 }
@@ -106,12 +105,13 @@ function updateCurrentQuestion() {
 }
 
 function updateScoreUi() {
-  $('.score span').text(totalScore);
+  $('.score span').text(`${totalScore} / ${questions.length}`);
+  $('.final-results span').text(`${totalScore} / ${questions.length}`);
 }
 
 function displayFinalResults() {
   $('.quiz-container').hide();
-  $('.final-results span').text(totalScore);
+  updateScoreUi();
   $('.final-results').removeClass('hide-final-results');
 }
 
@@ -124,4 +124,4 @@ function reStartQuiz() {
     $('.final-results').addClass('hide-final-results');
   });
 }
-$(handleQuiz);
+$(initializeNewQuiz);

@@ -56,7 +56,7 @@ body {
   padding: 35px;
   border-radius: 5px;
   line-height: 40px;
-  text-align: center;
+  text-align: left;
   position: relative;
   width: 97%;
   margin: 0 auto;
@@ -75,13 +75,11 @@ form {
   text-align: center;
 }
 form h2 {
-  color: white;
   margin-top: 20px;
+  color: whitesmoke;
 }
 form fieldset {
   border: 0;
-}
-form fieldset ul {
   background-color: whitesmoke;
   border-radius: 10px;
 }
@@ -92,6 +90,7 @@ form fieldset ul li:first-of-type {
 
 form fieldset ul li {
   padding: 20px 0;
+  margin-bottom: 10px;
   border-bottom: 1px solid #d3982b;
 }
 
