@@ -106,7 +106,7 @@ function updateCurrentQuestion() {
 }
 
 function updateScoreUi() {
-  $('.score span').text(score);
+  $('.score span').text(totalScore);
 }
 
 function displayFinalResults() {
