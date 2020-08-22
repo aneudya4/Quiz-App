@@ -27,7 +27,7 @@ function renderNewQuestion() {
 
   const questionsContainer = ` 
   <div class="questions-container">
-<h2>Quention ${currentQuestion + 1} of ${questions.length}</h2>
+<h2>Question ${currentQuestion + 1} of ${questions.length}</h2>
  <p> ${questions[currentQuestion].question}
 <span>?</span>
 </p>
