@@ -42,7 +42,9 @@ function renderNewQuestion() {
 }
 
 function renderAnswers(options) {
+  // sorting options by character length
   options = options.sort((a, b) => a.length - b.length);
+
   options.forEach((option, idx) => {
     $('ul').append(
       ` <li id="${idx}">
@@ -58,6 +60,10 @@ function renderAnswers(options) {
 function checkAnswer() {
   $('.quiz-container').on('submit', function (event) {
     event.preventDefault();
+    // this changes the inner text for the button when user in final question
+    currentQuestion === questions.length - 1
+      ? $('.next').text('See Results')
+      : null;
 
     const userInput = $('input:checked');
     const isUserCorrect = userInput.val() === questions[currentQuestion].answer;
