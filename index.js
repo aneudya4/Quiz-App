@@ -62,7 +62,7 @@ function checkAnswer() {
     event.preventDefault();
     // this changes the inner text for the button when user in final question
     currentQuestion === questions.length - 1
-      ? $('.next').text('See Results')
+      ? $('.next').text('Results')
       : null;
 
     const userInput = $('input:checked');
