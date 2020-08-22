@@ -20,7 +20,9 @@ function renderNewQuestion() {
    </ul>
    </fieldset>
    <button type="submit"  class='submit'>Submit</button>
-   <button  type="button" class='next hide-btn'> Next</button>
+   <button  type="button" class='next hide-btn'> Next
+   <i class="fas fa-arrow-circle-right"></i>
+   </button>
    </form>`;
 
   const questionsContainer = ` 

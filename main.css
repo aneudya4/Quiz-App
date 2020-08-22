@@ -151,6 +151,9 @@ button:hover {
   color: white;
 }
 
+button i {
+  animation: right-arrow 0.6s infinite alternate ease-in-out;
+}
 @media all and (min-width: 700px) {
   .questions-container {
     width: 90%;
@@ -237,5 +240,15 @@ button:hover {
 
   100% {
     transform: scale(1);
+  }
+}
+
+@-webkit-keyframes right-arrow {
+  0% {
+    -webkit-transform: translateX(0.9);
+  }
+  100% {
+    -webkit-transform: translateX(-0.3em);
+    color: black;
   }
 }
