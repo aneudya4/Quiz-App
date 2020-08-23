@@ -243,7 +243,7 @@ button i {
   }
 }
 
-@-webkit-keyframes right-arrow {
+@keyframes right-arrow {
   0% {
     -webkit-transform: translateX(0.9);
   }
